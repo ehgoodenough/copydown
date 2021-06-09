@@ -1,0 +1,28 @@
+{
+  "name": "markdown-template-engine",
+  "version": "1.0.0",
+  "description": "...",
+  "type": "module",
+  "contributors": [
+    "Andrew Goodenough <@ehgoodenough>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ehgoodenough"
+  },
+  "scripts": {
+    "build": "codeglue --stage=NONE",
+    "start": "codeglue --stage=NONE --mode=SERVER --port=8080",
+    "test": "echo lgtm",
+    "lint": "eslint source"
+  },
+  "dependencies": {
+    "preact": "^10.5.12",
+    "safe-eval": "^0.4.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-react-jsx": "^7.12.12",
+    "@babel/preset-env": "^7.12.11",
+    "codeglue": "^1.9.4"
+  }
+}
