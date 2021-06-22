@@ -1,8 +1,7 @@
 {
   "name": "copydown",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A template engine for markdown.",
-  "type": "module",
   "main": "index.js",
   "contributors": [
     "Andrew Goodenough <@ehgoodenough>"
@@ -16,6 +15,7 @@
     "lint": "eslint source"
   },
   "dependencies": {
+    "lodash": "^4.17.21",
     "objdict": "^1.0.1",
     "safe-eval": "^0.4.1"
   },

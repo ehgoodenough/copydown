@@ -1,5 +1,3 @@
-import Chai from "chai"
-
 const markdown = `
 # <animation.name> <Double(123)> #
 
@@ -27,7 +25,7 @@ const data = {
     },
 }
 
-const phoenixdown = `
+const copydown = `
 # Fighter 246 #
 
 ## Credits ##
@@ -42,5 +40,6 @@ And also Andrew Goodenough
 666
 `
 
-import Phoenixdown from "../source/index.js"
-Chai.expect(Phoenixdown(markdown, data)).to.equal(phoenixdown)
+const Chai = require("chai")
+const Copydown = require("./index.js")
+Chai.expect(Copydown(markdown, data)).to.equal(copydown)

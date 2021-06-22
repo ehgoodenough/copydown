@@ -1,5 +1,5 @@
-import evalsafe from "safe-eval"
-import * as objdict from "objdict"
+const evalsafe = require("safe-eval")
+const lodash = require("lodash")
 
 const DEFAULT_DATA = {
     "ForeachList": function({list, template}) {
@@ -11,9 +11,9 @@ const DEFAULT_DATA = {
 }
 
 
-export default function(markdown, data) {
+module.exports = function(markdown, data) {
     data = data || {}
-    data = objdict.merge(DEFAULT_DATA, data)
+    data = lodash.merge({}, DEFAULT_DATA, data)
 
     // markdown = markdown.trim()
     markdown = markdown.split("\n")
