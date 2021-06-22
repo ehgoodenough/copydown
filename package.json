@@ -1,5 +1,5 @@
 {
-  "name": "phoenixdown",
+  "name": "copydown",
   "version": "1.0.0",
   "description": "A template engine for markdown.",
   "type": "module",
@@ -8,7 +8,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ehgoodenough/phoenixdown"
+    "url": "https://github.com/ehgoodenough/copydown"
   },
   "scripts": {
     "test": "node tests/index.js",

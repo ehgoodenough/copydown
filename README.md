@@ -1,6 +1,6 @@
-# phoenixdown #
+# Copydown #
 
-A template engine for markdown
+A template engine for markdown.
 
 ### How to Build ###
 
