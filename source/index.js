@@ -1,30 +1,7 @@
 import evalsafe from "safe-eval"
+import * as objdict from "objdict"
 
-let markdown = `
-# <animation.name> <DownloadButton(123)> #
-
-## Credits ##
-
-<animation.credits>
-
-## Weapons ##
-
-<ForeachList({"list": animation.weapons, "template": DownloadButton})>
-`
-
-const context = {
-    "animation": {
-        "name": "Fighter",
-        "credits": "By Andrew Goodenough\nAnd also Andrew Goodenough",
-        "weapons": [
-            "111",
-            "222",
-            "333"
-        ],
-    },
-    "DownloadButton": function(value) {
-        return value * 2
-    },
+const DEFAULT_DATA = {
     "ForeachList": function({list, template}) {
         if(template != undefined) {
             list = list.map((value) => template(value))
@@ -33,10 +10,12 @@ const context = {
     }
 }
 
-console.log(AndrewFlavorMarkdown({markdown, context}))
 
-function AndrewFlavorMarkdown({markdown, context}) {
-    markdown = markdown.trim()
+export default function(markdown, data) {
+    data = data || {}
+    data = objdict.merge(DEFAULT_DATA, data)
+
+    // markdown = markdown.trim()
     markdown = markdown.split("\n")
 
     markdown = markdown.map((text) => {
@@ -45,7 +24,7 @@ function AndrewFlavorMarkdown({markdown, context}) {
         if(matches != null) {
             matches.forEach((match) => {
                 let func = match.substring(1, match.length - 1)
-                let rematch = evalsafe(func, context) ?? ""
+                let rematch = evalsafe(func, data) ?? ""
                 text = text.replace(match, rematch)
             })
         }
@@ -56,10 +35,3 @@ function AndrewFlavorMarkdown({markdown, context}) {
     markdown = markdown.join("\n")
     return markdown
 }
-
-// TODO:
-// - render as html?
-// - save context as json?
-// - more helpers: ForeachGrid
-// - import markdownplease from file!! save to markdown to new file.
-// - writing a system to mapping output readmes to views/models.
