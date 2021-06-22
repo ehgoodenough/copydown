@@ -1,8 +1,9 @@
 {
   "name": "copydown",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A template engine for markdown.",
   "type": "module",
+  "main": "index.js",
   "contributors": [
     "Andrew Goodenough <@ehgoodenough>"
   ],
@@ -11,19 +12,17 @@
     "url": "https://github.com/ehgoodenough/copydown"
   },
   "scripts": {
-    "test": "node tests/index.js",
+    "test": "node test.js",
     "lint": "eslint source"
   },
   "dependencies": {
     "objdict": "^1.0.1",
-    "preact": "^10.5.12",
     "safe-eval": "^0.4.1"
   },
   "devDependencies": {
-    "@babel/plugin-transform-react-jsx": "^7.12.12",
-    "@babel/preset-env": "^7.12.11",
     "chai": "^4.3.4",
     "codeglue": "^1.9.4",
+    "eslint": "^7.29.0",
     "mocha": "^9.0.1"
   }
 }
