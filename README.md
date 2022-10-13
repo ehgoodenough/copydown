@@ -1,25 +1,48 @@
 # Copydown #
 
-A template engine for markdown.
+A template engine for dynamically-generated markdown.
 
-### How to Build ###
-
-Have node v8+ and npm v5+.
+For example, if you took this template:
 
 ```
-node --version
-npm --version
+# <project.name> #
+
+## Numbers ##
+
+<ForeachList({"list": project.numbers, "template": exclaimify})>
+
+## Credits ##
+
+<project.credits>
 ```
 
-Start the dev server.
+And fed it this data:
 
 ```
-npm install
-npm start
+{
+    "project": {
+        "name": "Hero Tactics",
+        "numbers": [123456789, 987654321],
+        "credits": "By Andrew Goodenough\nAnd also Andrew Goodenough",
+    },
+    "exclaimify": function(value) {
+        return value + "!!"
+    },
+}
 ```
 
-Or make a build.
+You'd generate this markdown:
 
 ```
-npm run build
+# Hero Tactics #
+
+## Numbers ##
+
+123456789!!
+987654321!!
+
+## Credits ##
+
+By Andrew Goodenough
+And also Andrew Goodenough
 ```
