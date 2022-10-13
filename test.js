@@ -1,9 +1,11 @@
 const markdown = `
 # <project.name> #
 
-## Numbers ##
+<project.description>
 
-<ForeachList({"list": project.numbers, "template": exclaimify})>
+## Tags ##
+
+<ForeachList({"list": project.tags, "template": bulletify})>
 
 ## Credits ##
 
@@ -13,21 +15,25 @@ const markdown = `
 const data = {
     "project": {
         "name": "Hero Tactics",
-        "numbers": [123456789, 987654321],
+        "description": "An oldschool tactics rpg.",
+        "tags": ["Turn-based", "Tile-based", "Undo-able"],
         "credits": "By Andrew Goodenough\nAnd also Andrew Goodenough",
     },
-    "exclaimify": function(value) {
-        return value + "!!"
+    "bulletify": function(value) {
+        return "- " + value
     },
 }
 
 const copydown = `
 # Hero Tactics #
 
-## Numbers ##
+An oldschool tactics rpg.
 
-123456789!!
-987654321!!
+## Tags ##
+
+- Turn-based
+- Tile-based
+- Undo-able
 
 ## Credits ##
 
