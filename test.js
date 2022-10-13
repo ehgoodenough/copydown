@@ -1,43 +1,38 @@
 const markdown = `
-# <animation.name> <Double(123)> #
+# <project.name> #
+
+## Numbers ##
+
+<ForeachList({"list": project.numbers, "template": exclaimify})>
 
 ## Credits ##
 
-<animation.credits>
-
-## Weapons ##
-
-<ForeachList({"list": animation.weapons, "template": Double})>
+<project.credits>
 `
 
 const data = {
-    "animation": {
-        "name": "Fighter",
+    "project": {
+        "name": "Hero Tactics",
+        "numbers": [123456789, 987654321],
         "credits": "By Andrew Goodenough\nAnd also Andrew Goodenough",
-        "weapons": [
-            "111",
-            "222",
-            "333"
-        ],
     },
-    "Double": function(value) {
-        return value * 2
+    "exclaimify": function(value) {
+        return value + "!!"
     },
 }
 
 const copydown = `
-# Fighter 246 #
+# Hero Tactics #
+
+## Numbers ##
+
+123456789!!
+987654321!!
 
 ## Credits ##
 
 By Andrew Goodenough
 And also Andrew Goodenough
-
-## Weapons ##
-
-222
-444
-666
 `
 
 const Chai = require("chai")
